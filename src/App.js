@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import Header from './components/Header';
 
 class App extends Component {
-    state = { textkeren: 'Keren cuy' }
+    // state = { textkeren: 'Keren cuy' }
 
     ubahState = (objectnya) => {
       this.setState(objectnya)
@@ -10,11 +11,16 @@ class App extends Component {
     render() {
       return (
         <div>
-          <Header judul='Latihan Redux' fnpengubahappstate={this.ubahState} textker={this.state.textkeren}/>
-          <h3>{this.state.textkeren}</h3>
+          <Header judul='Latihan Redux' fnpengubahappstate={this.ubahState} textker={this.props.keren}/>
+          <h3>{this.props.keren}</h3>
+          <h2>{this.props.deadpool}</h2>
         </div>
       )
     }
 }
 
-export default App;
+const mapStateToProps = (state) => {
+  return { deadpool: state.pikachu, keren: state.textkeren }
+}
+
+export default connect(mapStateToProps)(App);

@@ -5,7 +5,8 @@ class Header extends Component {
     render() {
         return (
             <div style={{ border: '1px solid black'}}>
-                <JudulKece judulnya={this.props.judul} pengubahappstate={this.props.fnpengubahappstate} textkeru={this.props.textker} />
+                {/* <JudulKece judulnya={this.props.judul} pengubahappstate={this.props.fnpengubahappstate} textkeru={this.props.textker} /> */}
+                <JudulKece judulnya={this.props.judul} />
             </div>
         )
     }

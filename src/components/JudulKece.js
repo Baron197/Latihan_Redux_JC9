@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { ubahStateTextKeren } from '../actions';
 
 class JudulKece extends Component {
     onBtnUbahClick = () => {
         if(this.props.textkeru === 'Keren cuy') {
-            this.props.pengubahappstate({ textkeren: 'Keren coy' });
+            this.props.ubah('Keren coy');
         }
         else {
-            this.props.pengubahappstate({ textkeren: 'Keren cuy' });
+            this.props.ubah('Keren cuy');
         }
       }
 
@@ -20,4 +22,8 @@ class JudulKece extends Component {
     }
 }
 
-export default JudulKece;
+const mapStateToProps = (state) => {
+    return { textkeru: state.textkeren }
+}
+
+export default connect(mapStateToProps, { ubah: ubahStateTextKeren })(JudulKece);
